@@ -30,12 +30,26 @@ display_times() {
 }
 
 # Ask the user for their location
-echo "Please enter your location (north, south):"
-read location
+while true; do
+    echo "Please enter your location (north, south):"
+    read location
+    if [[ "$location" == "north" || "$location" == "south" ]]; then
+        break
+    else
+        echo "Invalid location. Please enter north or south."
+    fi
+done
 
 # Ask the user for the category of plants
-echo "Please enter the category of plants (vegetables, fruits, cereals, nuts, or all):"
-read category
+while true; do
+    echo "Please enter the category of plants (vegetables, fruits, cereals, nuts, or all):"
+    read category
+    if [[ "$category" == "vegetables" || "$category" == "fruits" || "$category" == "cereals" || "$category" == "nuts" || "$category" == "all" ]]; then
+        break
+    else
+        echo "Invalid category. Please enter vegetables, fruits, cereals, nuts, or all."
+    fi
+done
 
 # Display the planting and harvesting times based on the user's input
 if [ "$location" == "north" ]; then
